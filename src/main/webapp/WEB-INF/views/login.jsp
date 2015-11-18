@@ -81,6 +81,15 @@
 							class="form-control" name="email" placeholder="Email"
 							required>
 					</div>
+<!-- 					<div class="form-group col-lg-6 clear"> -->
+<!-- 						<input type="hidden" name="authorities" value="ROLE_USER"> -->
+<!-- 					</div> -->
+					<div class="form-group col-lg-6 clear">
+						<label> <input type="checkbox" name="authorities" value="ROLE_ADMIN">ADMIN</label>
+					</div>
+					<div class="form-group col-lg-6 clear">
+						<label> <input type="checkbox" name="authorities" value="ROLE_USER">USER</label>
+					</div>
 					<div class="form-group col-lg-6 clear">
 						<input class="btn btn-success" name="submit" type="submit"
 							value="submit" />

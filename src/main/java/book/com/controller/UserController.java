@@ -30,7 +30,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String addCar(@ModelAttribute("user") User user) {
+	public String addUser(@ModelAttribute("user") User user) {
 		return "signup";
 	}
 

@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User addUser(User user) throws BookStoreAppException {
-		List<Role> role=new ArrayList<>();
-		role.add(new Role("ROLE_USER"));
-		user.setAuthorities(role);
+//		List<Role> role=new ArrayList<>();
+//		role.add(new Role("ROLE_USER"));
+//		user.setAuthorities(role);
 		User userData = userDao.save(user);
 		
 		

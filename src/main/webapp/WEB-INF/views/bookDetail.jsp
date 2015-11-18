@@ -31,6 +31,19 @@ table, th, td {
 				</h1>
 			</div>
 			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="col-lg-8">
+					<c:if test="${pageContext.request.userPrincipal.name != null}">
+						Welcome : ${pageContext.request.userPrincipal.name}
+				</c:if>
+				</div>
+				<div class="col-lg-4">
+					<a href="<c:url value="j_spring_security_logout" />">
+						<button class="btn btn-primary loginbtn">Logout</button>
+					</a>
+
+				</div>
+			</div>
 		</div>
 		<!-- Add Book -->
 		<div class="row homecontent">

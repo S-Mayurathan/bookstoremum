@@ -26,16 +26,30 @@ table, th, td {
 					<strong>Book List</strong>
 				</h1>
 			</div>
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="col-lg-8">
+					<c:if test="${pageContext.request.userPrincipal.name != null}">
+						Welcome : ${pageContext.request.userPrincipal.name}
+				</c:if>
+				</div>
+				<div class="col-lg-4">
+					<a href="<c:url value="j_spring_security_logout" />">
+						<button class="btn btn-primary loginbtn">Logout</button>
+					</a>
+
+				</div>
+			</div>
 		</div>
 		<div class="row homecontent">
 			<div class="col-lg-4 center">
 				<img class="imageSize" src="resources/images/bookShop.png"
 					alt="Book Shop">
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-8">
 				<a href="addBook"> <input class="btn btn-success"
 					value="Add a new Book" /></a> <br /> <br />
-				<table style="width: 100%">
+				<table class="table table-bordered">
 					<tr>
 						<th>Title of the Book</th>
 						<th>Author</th>

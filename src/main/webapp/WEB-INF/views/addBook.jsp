@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +24,19 @@ table, th, td {
 				</h1>
 			</div>
 			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="col-lg-8">
+					<c:if test="${pageContext.request.userPrincipal.name != null}">
+						Welcome : ${pageContext.request.userPrincipal.name}
+					</c:if>
+				</div>
+				<div class="col-lg-4">
+					<a href="<c:url value="j_spring_security_logout" />" > 
+						<button class="btn btn-primary loginbtn">Logout</button>
+					</a>
+
+				</div>
+			</div>
 		</div>
 		<!-- Add Book -->
 		<div class="row homecontent">
@@ -32,9 +45,11 @@ table, th, td {
 					alt="Book Shop">
 			</div>
 			<div class="col-lg-6">
-				<form:form commandName="book" action="addBook" method="post">
+				<form:form commandName="book" action="addBook" method="post" >
+					<div class="alert alert-danger">
 					<form:errors path="*" cssClass="errorblock" element="div" />
-
+					</div>
+					
 					<table>
 						<tr>
 							<td>Title:</td>

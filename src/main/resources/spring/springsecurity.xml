@@ -19,19 +19,20 @@
 	<http pattern="/resources/**" security="none" />
 
 	<http>
-		<intercept-url pattern="/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/signup" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/addBook" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/bookDetail" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/bookList" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/loginfailed" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/userBookList" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/signup" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/bookservice" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/bookDetail" access="ROLE_ADMIN" />
+		<intercept-url pattern="/bookList" access="ROLE_ADMIN,ROLE_USER" />
+		<intercept-url pattern="/addBook" access="ROLE_ADMIN" />
+		<intercept-url pattern="/books" access="ROLE_ADMIN" />
+		<intercept-url pattern="/books/*" access="ROLE_ADMIN" />
 		<intercept-url pattern="/**" method="POST" access="ROLE_ADMIN" />
-		<intercept-url pattern="/addCar" method="GET" access="ROLE_ADMIN" />
 		<intercept-url pattern="/**" access="ROLE_USER" method="GET" />
-		<form-login login-page="/login" 
-			default-target-url="/userBookList"
-			authentication-failure-url="/login?error" 
-			username-parameter="username"
+		<form-login login-page="/login" default-target-url="/books"
+			authentication-failure-url="/login?error" username-parameter="username"
 			password-parameter="password" />
 		<logout logout-success-url="/login" delete-cookies="JSESSIONID" />
 		<security:session-management

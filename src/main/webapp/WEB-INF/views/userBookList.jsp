@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="resources/css/bookshop.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="resources/js/bootSearch.js"></script>
 </head>
 <body>
 	<div class="containner">
@@ -20,20 +22,18 @@
 				</h1>
 			</div>
 			<div class="col-lg-6">
-				<div class="col-lg-8">
-					<c:if test="${pageContext.request.userPrincipal.name != null}">
-						Welcome : ${pageContext.request.userPrincipal.name}
-				</c:if>
-				</div>
-
-
-
-				<div class="col-lg-4">
-					<a href="<c:url value="j_spring_security_logout" />">
-						<button class="btn btn-primary loginbtn">Logout</button>
-					</a>
-
-				</div>
+				<form name='searchForm' id="searchForm">
+					<div class="form-group col-lg-5">
+						<label for="user" class="control-label">Search</label><br /> 
+						<input type="text" class="form-control" name='search' 
+							placeholder="Search" required>
+							
+					</div>
+					<div class="form-group col-lg-2">
+					 <input class="btn btn-primary loginbtn" type="submit"
+							value="submit" />
+					</div>
+					</form>
 			</div>
 
 		</div>
