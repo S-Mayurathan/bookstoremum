@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/context
@@ -10,7 +10,9 @@
         http://www.springframework.org/schema/mvc
     http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd	
         http://www.springframework.org/schema/tx
-	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	 http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 
 	<!-- Scan for components under this package -->
@@ -56,7 +58,7 @@
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="properties">
 			<props>
-<!-- 				<prop key="hibernate.hbm2ddl.auto">create</prop> -->
+				<!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect
 				</prop>
 				<prop key="connection.pool_size">1</prop>
@@ -72,6 +74,11 @@
 
 	<!-- look for transaction annotations -->
 	<tx:annotation-driven transaction-manager="txManager" />
+
+	<!-- AOP Advice mapping -->
+	<aop:aspectj-autoproxy />
+	<bean id="bookAdvice" class="book.com.aop.BookAdvice" />
+	<bean id="loginAdvice" class="book.com.aop.LoginAdvice" />
 
 	<!-- manually create the carService here -->
 	<bean id="userDao" class="book.com.dao.UserDaoImpl">

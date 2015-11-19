@@ -39,7 +39,7 @@ public class BookController {
 		return books;
 	}
 
-	// This will be creating a webservice with entire book information
+	// This will be creating a webservice with a book information
 	@RequestMapping(value = "/test/{search}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Book> getBookById(@PathVariable String search)

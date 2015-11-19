@@ -34,11 +34,10 @@ public class UserBookController {
 		RestTemplate restTemplate = new RestTemplate();
 
 		List<Book> books = restTemplate.getForObject(url, List.class, params);
-		
-	
-		List<Book> outBook = new ArrayList<>();
+
+		List<Book> outBook = new ArrayList<Book>();
 		outBook.addAll(books);
-		
+
 		return new ModelAndView("userBookList", "books", books);
 	}
 
@@ -50,12 +49,10 @@ public class UserBookController {
 		RestTemplate restTemplate = new RestTemplate();
 
 		List<Book> books = restTemplate.getForObject(url, List.class, params);
-	
-		
-		List<Book> outBook = new ArrayList<>();
+
+		List<Book> outBook = new ArrayList<Book>();
 		outBook.addAll(books);
 		return new ModelAndView("userBookList", "books", outBook);
 	}
-	
-	
+
 }
