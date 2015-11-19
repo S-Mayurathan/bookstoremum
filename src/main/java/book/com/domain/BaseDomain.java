@@ -3,13 +3,7 @@ package book.com.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * This represents that base entity for all POJOs and DTO objects. It contains common attributes and get/set
- * methods that can be reused across all objects. All DTOs and POJOs in the application should extend this
- * class.
- * 
- * @author Virtusa Corporation
- */
+
 
 public class BaseDomain implements Serializable {
     
