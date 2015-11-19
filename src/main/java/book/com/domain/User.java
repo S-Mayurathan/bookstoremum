@@ -4,11 +4,13 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -24,6 +26,7 @@ public class User extends BaseDomain implements UserDetails {
 	@GeneratedValue
 	private int id;
 	@NotNull
+	@Column(unique = true)
 	private String username;
 	@NotNull
 	private String password;

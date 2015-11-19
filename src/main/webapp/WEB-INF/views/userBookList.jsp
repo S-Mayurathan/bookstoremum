@@ -62,11 +62,11 @@
 						<tbody>
 							<c:forEach var="book" items="${books}">
 								<tr>
-									<td>${book.id}</td>
+									
 									<td>${book.bookName}</td>
 									<td>${book.author}</td>
-									<td>${book.price}</td>
-
+									<td>&#36; ${book.price}</td>
+									<td><a href="#">Shop</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

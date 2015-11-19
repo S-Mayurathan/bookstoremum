@@ -55,4 +55,9 @@ public class BookServiceImpl implements BookService {
 
 	}
 
+	public List<Book> getBookByName(String bookName) throws BookStoreAppException {
+		List<Book> bookData = bookDao.findByName(Book.class, bookName);
+		return bookData;
+	}
+
 }

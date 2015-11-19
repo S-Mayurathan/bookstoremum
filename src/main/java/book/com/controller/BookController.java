@@ -1,8 +1,6 @@
 package book.com.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -39,6 +37,15 @@ public class BookController {
 	public List<Book> getAllBooks() throws BookStoreAppException {
 		List<Book> books = bookService.listBooks();
 		return books;
+	}
+
+	// This will be creating a webservice with entire book information
+	@RequestMapping(value = "/test/{search}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Book> getBookById(@PathVariable String search)
+			throws BookStoreAppException {
+		List<Book> book = bookService.getBookByName(search);
+		return book;
 	}
 
 	@RequestMapping(value = "/books", method = RequestMethod.POST)

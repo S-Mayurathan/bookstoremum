@@ -19,6 +19,8 @@ public interface BookService {
 
 	public Book getBookById(int bookId) throws BookStoreAppException;
 
+	public List<Book> getBookByName(String bookName) throws BookStoreAppException;
+
 	public List<Book> listBooks() throws BookStoreAppException;
 
 	public void removeBook(Book book) throws BookStoreAppException;

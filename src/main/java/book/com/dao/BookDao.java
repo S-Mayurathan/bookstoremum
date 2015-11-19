@@ -16,5 +16,8 @@ public interface BookDao extends BaseDao<Book> {
 
 	Object findById(Class<Book> domainObj, int id) throws BookStoreAppException;
 
+	List<Book> findByName(Class<Book> domainObj, String bookName)
+			throws BookStoreAppException;
+
 	List<Book> findAll(Class<Book> domainClass) throws BookStoreAppException;
 }

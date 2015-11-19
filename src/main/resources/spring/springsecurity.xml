@@ -24,6 +24,8 @@
 		<intercept-url pattern="/userBookList" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/signup" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/bookservice" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/test/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/test" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/bookDetail" access="ROLE_ADMIN" />
 		<intercept-url pattern="/bookList" access="ROLE_ADMIN,ROLE_USER" />
 		<intercept-url pattern="/addBook" access="ROLE_ADMIN" />
@@ -31,6 +33,7 @@
 		<intercept-url pattern="/books/*" access="ROLE_ADMIN" />
 		<intercept-url pattern="/**" method="POST" access="ROLE_ADMIN" />
 		<intercept-url pattern="/**" access="ROLE_USER" method="GET" />
+		<intercept-url pattern="/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<form-login login-page="/login" default-target-url="/books"
 			authentication-failure-url="/login?error" username-parameter="username"
 			password-parameter="password" />
