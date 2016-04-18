@@ -20,7 +20,7 @@ public class RoleDaoImpl extends HibernateDaoSupport implements RoleDao {
 			return domainObj;
 
 		} catch (DataAccessException ex) {
-			LOG.error("RoleDaoImpl - error occured while saving object " + domainObj + "-->" + ex.toString());
+			LOG.error("RoleDaoImpl - error occurred while saving object " + domainObj + "-->" + ex.toString());
 			throw new BookStoreAppException(BookStoreConstant.HIBERNATE_INVALID_ADD_OPERATION, ex);
 		}
 	}
